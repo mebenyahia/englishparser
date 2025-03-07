@@ -132,8 +132,7 @@ def tagger(sentence):
 ######################################################PARSER
 
 def parser(sent):
-    print('==================================')
-    print('==================================')
+    print('==================================\n'*2)
     print('\n>>Sentence:\t', sent, '\n')
     sentence = sent.split()
     print('\n>>Tokenized:\t', sentence, '\n')
@@ -291,8 +290,7 @@ def parser(sent):
                         
                         if vptags[n] not in ['AUX', 'VERB']:
                             print('\nvp -> AV PREP VERB NP.\n', VP)
-                            print('-------------------------------')
-                            print('-------------------------------')
+                            print(('-'*30+'\n')*2)
                             print('\n\n\nPASSING NP:', vwords[n:], 'through Parser.')
                             vflag = parser(join(vwords[n:]))
                             
@@ -305,8 +303,7 @@ def parser(sent):
                     
                     if vptags[n] not in ['AUX', 'VERB']:
                         print('\nvp -> AUX VERB NP.\n', VP)
-                        print('-------------------------------')
-                        print('-------------------------------')
+                        print(('-'*30+'\n')*2)
                         print('\n\n\nPASSING NP:', vwords[n:], 'through Parser.\n\n\n')
                         vflag = parser(join(vwords[n:]))
 
@@ -316,8 +313,7 @@ def parser(sent):
                         
                 elif vptags[n] in ['DET']:
                     print('\nvp -> AUX NP.\n', VP)
-                    print('-------------------------------')
-                    print('-------------------------------')
+                    print(('-'*30+'\n')*2)
                     print('\n\n\nPASSING NP:', vwords[n:], 'through Parser.\n\n\n')
                     vflag = parser(join(vwords[n:]))
 
@@ -329,8 +325,7 @@ def parser(sent):
                     if vptags[n] in ['PREP']:
                         n += 1
                     print('\nvp -> VERB NP.\n', VP)
-                    print('-------------------------------')
-                    print('-------------------------------')
+                    print(('-'*30+'\n')*2)
                     print('\n\n\nPASSING NP:', vwords[n:], 'through Parser.')
                     vflag = parser(join(vwords[n:]))
 
@@ -344,10 +339,10 @@ def parser(sent):
         if (vflag == True or vflag == None) and nflag == True:
             sflag = True
         print('\n\nSTATE OF VP', vflag, '\n\n')
-        print('===============================')
+        print(('='*30+'\n')*2)
         print('VFLAG', vflag, 'NFLAG', nflag)
         print('\nThe sentence: "', sent, '" is', sflag, '.\n')
-        print('===============================')
+        print(('='*30+'\n')*2)
         
     elif NP and not VP:
         
@@ -386,8 +381,7 @@ def parser(sent):
             elif nptags[n] in ['PREP']:
                 n += 1
                 print('\nvp -> PREP NP.\n', NP)
-                print('-------------------------------')
-                print('-------------------------------')
+                print(('-'*30+'\n')*2)
                 print('\n\n\nPassing NP:', nwords[n:], 'through Parser.')
                 nflag = parser(join(nwords[n:]))
                 return True
@@ -402,8 +396,7 @@ def parser(sent):
                         break;
                 
                 print('\nvp -> ADJ* NP.\n', NP)
-                print('-------------------------------')
-                print('-------------------------------')
+                print(('-'*30+'\n')*2)
                 print('\n\n\nPassing NP:', nwords[n:], 'through Parser.')
                 nflag = parser(join(nwords[n:]))
                 return True
@@ -414,8 +407,7 @@ def parser(sent):
         if vptags[n] in ['VERB']:
             n += 1
             print('\nvp -> VERB NP.\n', VP)
-            print('-------------------------------')
-            print('-------------------------------')
+            print(('-'*30+'\n')*2)
             print('\n\n\nPassing NP:', vwords[n:], 'through Parser.')
             nflag = parser(join(vwords[n:]))
             return True
@@ -427,7 +419,7 @@ def parser(sent):
 ######################################################TESTCASE
 #Facts:
 parser("Sam is young.")
-#parser("The universe is infinite.")
+parser("The universe is infinite.")
 
 #Active:
 #parser("I read books.")
